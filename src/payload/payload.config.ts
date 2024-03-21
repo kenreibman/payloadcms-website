@@ -23,6 +23,7 @@ import { seed } from './endpoints/seed'
 import { Footer } from './globals/Footer'
 import { Header } from './globals/Header'
 import { Settings } from './globals/Settings'
+import FormBuilder from '@payloadcms/plugin-form-builder'
 
 const generateTitle: GenerateTitle = () => {
   return 'My Website'
@@ -86,6 +87,20 @@ export default buildConfig({
     },
   ],
   plugins: [
+    FormBuilder({
+      fields: {
+        text: true,
+        textarea: true,
+        select: true,
+        email: true,
+        state: true,
+        country: true,
+        checkbox: true,
+        number: true,
+        message: true,
+        payment: false
+      },
+    }),
     redirects({
       collections: ['pages', 'posts'],
     }),
